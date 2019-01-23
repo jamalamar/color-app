@@ -1,0 +1,22 @@
+extends ../_layout
+block content
+  h2 Color
+  p #{color}
+
+  section
+
+    // Update Color form
+    h3 Update Color
+    form(action="/colors/update-color" method="POST")
+      label(for="update-color-input") New Color Name
+      input#update-color-input(type="text" name="new-color")
+      input(type="hidden" name="id" value=id)
+      button(type="submit") Update Color
+
+    // Delete Color form
+    h3 Delete Color
+    form(action="/colors/remove-color" method="POST")
+      input(type="hidden" name="color" value=color)
+      button(type="submit") Remove Color
+
+    a(href="/colors/") View All Colors

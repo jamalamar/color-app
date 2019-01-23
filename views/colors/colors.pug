@@ -1,0 +1,15 @@
+extends ../_layout
+block content
+  h2 Colors
+  ul
+    each color, index in colors
+      li
+        a(href="/colors/" + index) #{color}
+
+  section
+    // Create new color
+    h3 Add Color
+    form(action="/colors/add-color/" method="POST")
+      label(for="new-color") Color Name
+      input#new-color(type="text" name="new-color")
+      button#add-color-button(type="submit") Add Color!
